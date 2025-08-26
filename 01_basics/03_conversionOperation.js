@@ -14,3 +14,17 @@ console.log(valueInNumber);        // NaN
 let isLoggedIn = "mamta"
 let booleanislogedIn = Boolean(isLoggedIn);
 console.log(typeof booleanislogedIn); 
+
+
+
+////// oprators
+
+console.log("1"+2); //12
+console.log(1+"2"); //12
+console.log("1"+2+2); //122
+console.log(1+2+"2"); //32
+
+let gamecounter =22;
+console.log(gamecounter++);
+console.log(++gamecounter);
+
