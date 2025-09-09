@@ -35,5 +35,31 @@ function loginUserMessage(username){
     return `${username} just logged in`;
 }
 //console.log(loginUserMessage("xyzzz"));   //xyzzz just logged in
-console.log(loginUserMessage());//enter a user name undefined just logged in
+//console.log(loginUserMessage());//enter a user name undefined just logged in
+
+
+
+
+/////////////////////////////////////////////////// 
+   
+/*
+
+function calculateCartPrice(num1)
+{
+    return num1;
+}
+console.log(calculateCartPrice(100,200,300));     //100
+
+*/
+
+function calculateCartPrice(...num1) //Rest oprator
+{
+    return num1;
+}
+console.log(calculateCartPrice(100,200,300))       //[ 100, 200, 300 ]
+
+/* note-:The ... (triple dot) can act as rest or spread operator depending on how it’s used:
+   1. Rest Operator (collects values into an array/object)
+   2. Spread Operator (expands values)
+*/
 
