@@ -63,3 +63,43 @@ console.log(calculateCartPrice(100,200,300))       //[ 100, 200, 300 ]
    2. Spread Operator (expands values)
 */
 
+
+///////////////////// object into a function ///////////////////////
+
+const user = {
+    name : "xyz",
+    price : "200"
+}
+function handleObject(anyobject)
+{
+    console.log(`User name is ${anyobject.name} and the price is ${anyobject.price}`)     
+}
+
+//two ways to pass object:-
+
+/*
+1.handleObject(user)  
+
+2. Direct passing  
+handleObject({
+    name:"abc",
+    price:89
+
+})
+*/
+
+/////////// passing array in function //////////////
+
+const myNewArray = [22,33,44,55,66];
+function Returnanothervalue(getarray)
+{
+    return getarray[2];
+}
+
+/*
+1. console.log(Returnanothervalue(myNewArray));   //44
+2.  console.log(myNewArray[2]);                  // direct methode
+*/
+
+
+
