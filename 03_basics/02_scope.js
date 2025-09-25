@@ -58,3 +58,75 @@ Variables declared with let or const are also hoisted,
 BUT they are placed in the Temporal Dead Zone (TDZ) until the code execution actually reaches their line.
 That’s why you cannot access addTwo before initialization.
 */
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+
+1. Closure in JavaScript
+
+👉 A closure is formed when a function "remembers" the variables from its outer scope, even after that outer function has finished executing.
+
+Example:
+function outer() {
+  let count = 0;   // variable in outer function
+
+  function inner() {
+    count++;       // inner function can access outer function variable
+    console.log(count);
+  }
+
+  return inner;
+}
+
+const counter = outer(); 
+counter(); // 1
+counter(); // 2
+counter(); // 3
+
+
+✅ Here, the inner function closes over the variable count, keeping it alive even after outer() has returned.
+
+In short:
+Closures let you access an outer function’s scope from an inner function.
+They are often used for data hiding, function factories, and maintaining state.
+
+2. Hoisting in JavaScript
+
+👉 Hoisting is JavaScript’s behavior of moving declarations to the top of the scope before code execution.
+
+Function Declarations are hoisted with their full definition.
+
+Variables (var) are hoisted but initialized as undefined.
+
+let and const are hoisted too, but they stay in the Temporal Dead Zone (TDZ) until they are initialized.
+
+Example with var:
+console.log(a); // undefined (not error)
+var a = 10;
+
+Example with let or const:
+console.log(b); // ❌ ReferenceError
+let b = 20;
+
+Example with function:
+sayHi(); // Works
+function sayHi() {
+  console.log("Hello!");
+}
+
+
+✅ Because the function declaration is hoisted completely.
+
+🔑 Summary:
+
+Closure → Inner function remembers variables of outer function even after execution.
+
+Hoisting → Declarations are moved to the top of their scope (functions fully, variables partially).
+
+
+
+
+*/
