@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bg-black{
+            background-color: grey;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id ="title" class="heading">DOM learning <span style="display: none;">from tutorial</span></h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+
+        <ul>
+            <li>hi</li>
+            <li>op</li>
+            <li>hii</li>
+        </ul>
+    </div>
+</body>
+
+
+
+
+
+</html>
+
+
+
+
+
+
+<!--
+
+document.getElementById('title')
+<h1 id=​"title" class=​"heading">​DOM learning​</h1>​
+
+
+document.getElementById('title').id
+'title'
+
+document.getElementById('title').class
+undefined
+
+document.getElementById('title').className
+'heading'
+
+document.getElementById('title').getAttribute('class')
+'heading'
+
+document.getElementById('title').setAttribute('class','test')
+undefined //already set
+
+
+/////////////////// InnerText vs TextContent //////////////////////
+
+const ti =document.getElementById('title')
+undefined
+
+ti
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+ti.textcontent
+undefined
+
+ti.innerText
+'DOM learning'
+
+ti.textContent
+'DOM learning from tutorial'
+
+
+
+textContent:-
+
+Returns all the text inside an element, including hidden text (like with display: none or visibility: hidden).
+Faster because it directly reads the node content, doesn’t trigger style recalculations.
+Use when you just want the raw text of the element.
+
+innerText:-
+
+Returns only the visible text (ignores hidden elements and styles).
+Slower, since it checks CSS and reflows the page to know what’s visible.
+Use when you want to get text as the user sees it on the page.
+
+
+
+//////////////////////////// querySelector /////////////////////
+
+document.querySelector('h2');
+<h2>​Lorem ipsum dolor sit amet.​</h2>​
+
+how it works:-example
+
+const temp = document.querySelectorAll('li')
+undefined
+temp[0].style.color = 'green'
+'green'
+
+//////////////////////// querySelector() vs querySelectorAll() /////////////////////
+
+👉document.querySelector("p");
+
+Returns only the first <p> element.
+Its return type is a single Element object, not an array.
+
+👉 document.querySelectorAll("p");
+
+Returns all <p> elements.
+
+Its return type is a NodeList (which looks like an array but is not a real array).
+You can loop it with forEach, but if you need full array methods (map, filter, etc.), you convert it:
+
+let allP = document.querySelectorAll("p");   // NodeList
+let arr = Array.from(allP);    
+
+
+'DOM learning'
+-->
