@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <h1>GUESS A NUMBER</h1>
+    </nav>
+    <div class="wrapper">
+        <h2>Try your luck !</h2>
+        <p>Try and gess a number b/w 1 to 100</p>
+        <p>you have 10 attempt to guess the right number</p>
+
+        <form class="form">
+            <label for="guessField" id="guess">Guess a number</label>
+            <input type="text" id="guessField" class="guessField">   
+            <input type="submit" id="submit" value="submit guess" class="guessSubmit">    
+        </form>
+        <div class="result">
+            <p>previous Guesss: <span class="guess"></span></p>
+            <p>Guesses Remaining : <span class="lastResult">10</span></p>
+            <p class="lowOrHi"></p>
+        </div>
+    </div>
+    <script src="guessno.js"></script>
+</body>
+</html>
