@@ -1,0 +1,145 @@
+<!--
+An event in JavaScript is an action or occurrence that happens in the browser — such as 
+a user click, key press, mouse movement, or page load — that can be detected and handled 
+using event listeners.
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+
+    // document.getElementById('owl').onclick = function()
+    // {
+    //     alert("First methode");
+    // }
+    // NOTE -> addEventListener() is more powerful, flexible, and modern than onclick, and it supports features like event propagation and multiple handlers — making it the preferred choice in JavaScript.
+    //attachEvent()    previously used in internetexplo.
+    //jQuery - on
+
+
+
+
+    /*     Common Event Object Properties :-         
+
+    | **Property**             | **Description**                                                                               | **Example / Use**                                                                      |
+| ------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **type**                 | Returns the type of the event.                                                                | `"click"`, `"keydown"`, `"mouseover"`, etc.                                            |
+| **timestamp**            | Returns the time (in milliseconds) when the event was created.                                | Helps measure how long something takes between events.                                 |
+| **defaultPrevented**     | Returns `true` if `event.preventDefault()` was called.                                        | Used to check if the default action (like form submit) was stopped.                    |
+| **target**               | The element that triggered the event.                                                         | If you click a button, `event.target` refers to that button.                           |
+| **toElement**            | (Old IE) The element the mouse moved **to** during a `mouseout` event.                        | Rarely used today.                                                                     |
+| **srcElement**           | (Old IE) Same as `target`.                                                                    | Use `target` instead.                                                                  |
+| **currentTarget**        | The element whose event listener is currently executing.                                      | Useful when using event delegation.                                                    |
+| **clientX**, **clientY** | The mouse pointer’s X/Y coordinates **within the browser’s viewport** (not including scroll). | Used to find where in the window the click happened.                                   |
+| **screenX**, **screenY** | The mouse pointer’s X/Y coordinates **on the entire screen**.                                 | Used when you need global screen position.                                             |
+| **altKey**               | Returns `true` if the **Alt** key was pressed when the event occurred.                        | Useful in keyboard shortcuts.                                                          |
+| **ctrlKey**              | Returns `true` if the **Ctrl** key was pressed.                                               | Example: Detecting Ctrl + Click.                                                       |
+| **shiftKey**             | Returns `true` if the **Shift** key was pressed.                                              | Example: Selecting multiple items.                                                     |
+| **keyCode**              | Returns the Unicode key code of the key pressed.                                              | Example: `event.keyCode === 13` → Enter key. (⚠️ Deprecated, use `event.key` instead.) |
+*/
+    /*eg:>
+    document.addEventListener('click', function(event) {
+        console.log("Event type:", event.type);
+        console.log("Clicked at:", event.clientX, event.clientY);
+        console.log("Ctrl key pressed?", event.ctrlKey);
+    });
+    Event type: click
+    Clicked at: 154 242
+    Ctrl key pressed? false
+    */
+
+
+
+    document.getElementById('owl').addEventListener('click', function (e) {
+        console.log(e);
+    }, false)//event bubbling
+    document.getElementById('owl').addEventListener('click', function (e) {
+        console.log(e);
+    }, false)//event capturing
+
+    /* event propogation := event bubbling , event capturing
+      
+        | Feature            | **Event Bubbling**                   | **Event Capturing**                        |
+| ------------------ | ------------------------------------ | ------------------------------------------ |
+| **Flow Direction** | Child → Parent (bottom to top)       | Parent → Child (top to bottom)             |
+| **Default Phase**  | ✅ Yes (default behavior)             | ❌ No (must be enabled manually)            |
+| **Use Case**       | Most commonly used                   | Rare, used when you need top-down control  |
+| **Enable Mode**    | `addEventListener('click', handler)` | `addEventListener('click', handler, true)` |
+
+    
+    */
+
+      
+
+    // document.getElementById('images').addEventListener('click', function () {
+    //     console.log("clicked inside ul");
+    // }, false)
+
+    // document.getElementById('prayer').addEventListener('click', function () {
+    //     console.log("clicked prayer");
+    //     e.stopPropagation();
+    // }, false)
+
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+
+
+    // click to remove image
+
+       document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+
+
+       //two methode to remove:=
+       //removeIt.remove();//remove whole ul insteed of li
+      // removeIt.parentNode.removeChild(removeIt);
+
+     },false)
+
+
+
+</script>
+
+</html>
