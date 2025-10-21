@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Learning JavaScript</h1>
+    <button  id="btn1"> Start </button>
+     <button  id="btn2"> Stop</button>
+
+</body>
+<script>
+
+    // let sayname = function(str){
+    //     console.log("str",Date.now());
+    // }
+    // let sInterval = setInterval(sayname,1000,"abcd");
+    //clearInterval(sInterval);
+
+     let Interval;
+     function sayname(str){
+        console.log(Date.now(),str);
+     }
+            ///////////////////// set Intraval ////////////////
+     document.querySelector('#btn1').addEventListener('click',function()
+    {
+      Interval = setInterval(sayname,1000,"abcdefgh")
+    })
+         /////////////////////// Clear Interval /////////////////////////
+     document.querySelector('#btn2').addEventListener('click',function()
+    {
+      clearInterval(Interval);
+      console.log("Interval stoped at");
+    })
+
+</script>
+</html>
