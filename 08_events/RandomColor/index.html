@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#"> Explore</a>
+        <a href="#"> Home</a>
+        <a href="#"> View</a>
+        <a href="#"> Contact</a>
+    </nav>
+    <main>
+        <h1> Welcome to Random Color changing Project</h1>
+        <p> You can start project by clicking the given start button and vice versa</p>
+        <button id="Start">Start</button>
+        <button id="Stop">Stop</button>
+        <p>Thankyou for visiting</p>
+    </main>
+</body>
+<script>
+
+
+    // random color generate:-
+
+    const randomcolor = function () {
+        let hex = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += hex[Math.floor(Math.random() * 16)];
+
+
+        }
+        return color;
+
+
+    };
+
+    let interval;
+    const startcolorchange = function () {
+        if (!interval) {
+            interval = setInterval(changeColor, 1000);
+        }
+        function changeColor() {
+            document.body.style.backgroundColor = randomcolor();
+        }
+    };
+
+    const Stopcolorchanger = function () {
+        clearInterval(interval);
+        interval = null;
+    }
+
+
+    document.querySelector('#Start').addEventListener('click', startcolorchange);
+    document.querySelector('#Stop').addEventListener('click', Stopcolorchanger);
+
+
+
+
+    //Setting interval = null both reduces unnecessary memory usage and keeps your app logic safe.
+
+</script>
+
+</html>
